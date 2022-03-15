@@ -29,28 +29,11 @@ from .models import Student
 def student(request):
   if request.method == 'GET':
     stud_list = list(Student.objects.all().order_by('-id'))
-    
+    print(stud_list)
+    return HttpResponse(stud_list)
 
+    '''
+    from django.http import JsonResponse
 
-    if request.method == 'POST':
-
-        #print(request.POST.get('name'))
-        name = request.POST.get('name')
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-        ''' phone = request.POST['phone']
-        if len(phone)<10 or len(phone)>10:
-            raise ValidationError("Phone number length is not right")
-        query = request.POST['query']
-        '''
-        #print(name ,  email ,  password  )
-        
-        u = User.objects.filter(username = name ).first() 
-        if u is None :
-            user = User.objects.create_user(username=name,
-                                 email=email,
-                                 password=password , is_staff=True)
-        else:
-            return HttpResponse(' user already there ')
-
-    return HttpResponse('created a user')
+    return JsonResponse(['a', 'b'], safe=False)
+    '''
