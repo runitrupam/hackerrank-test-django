@@ -83,3 +83,10 @@ You are provided with the implementation of the Student model. The REST service 
 `DELETE` request to `/students/<id>`:
 
 - the response code is 405 because the API does not allow deleting student records for any id value
+
+
+```
+    path('admin/', admin.site.urls),
+    path('students/',views.get_all_or_post,name='get_all_or_post'), # get or add a student
+    path('students/<int:id>',views.get_or_update,name='get_or_update'), # UPDATE a student or get
+```
