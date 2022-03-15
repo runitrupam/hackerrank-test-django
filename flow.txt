@@ -1,0 +1,38 @@
+python -m pip install -U pip --user 
+pip install virtualenv
+virtualenv env       
+.\env\Scripts\activate.ps1
+
+
+pip install gunicorn # web server used for heroku 
+# django run server
+python manage.py runserver
+
+pip install gunicorn
+
+pip freeze > requirements.txt
+
+
+git init
+
+git add .   # move all change to stage
+
+git commit -m "Initialize commit"
+
+git remote -v # show all connections 
+
+
+    SETTINGS.PY file 
+    
+    set debug  = False in setting.py 
+
+    STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+    # Activate Django-Heroku.
+  
+
+git remote add origin ''url''
+#git branch -M main
+git push -u origin master
+
+
