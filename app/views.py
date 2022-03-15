@@ -8,6 +8,7 @@ import json
 from django.db.models import F
 
 from django.views.decorators.csrf import csrf_exempt
+from django.core import serializers
 
 
 '''
@@ -30,10 +31,12 @@ def student(request):
   if request.method == 'GET':
     stud_list = list(Student.objects.all().order_by('-id'))
     print(stud_list)
+    #SomeModel_json = serializers.serialize("json", Student.objects.all())
+
     return HttpResponse(stud_list)
 
-    '''
+  '''
     from django.http import JsonResponse
 
     return JsonResponse(['a', 'b'], safe=False)
-    '''
+  '''
